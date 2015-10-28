@@ -9,6 +9,7 @@
         <link href="<?php echo url('/');?>/assets/css/bootstrap.min.css" rel="stylesheet" />
         <script src="<?php echo url('/');?>/assets/js/jquery-2.1.4.min.js"></script>
         <script src="<?php echo url('/');?>/assets/js/bootstrap.min.js"></script>
+        <script src="<?php echo url('/');?>/assets/js/respond.min.js"></script>
         <style type="text/css">
 			.navbar-default {
 			  background-color: #3f6aee;
@@ -102,13 +103,13 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <a class="navbar-brand" href="#">Museo Regional de Rawson</a>
+		      <a class="navbar-brand" href="{{url('/')}}">Museo Regional Salesiano</a>
 		    </div>
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
-		        <li class="active"><a href="#">Inicio<span class="sr-only">(current)</span></a></li>
-		        <li><a href="#">Autoridades</a></li>
+		        <li class="active"><a href="{{url('/')}}">Inicio<span class="sr-only">(current)</span></a></li>
+		        <li><a href="{{url('/personas')}}">Personas</a></li>
 		        <li class="dropdown">
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Acciones<span class="caret"></span></a>
 		          <ul class="dropdown-menu">
@@ -144,12 +145,6 @@
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
 		</nav>
-		<div class="row">
-			<ul class="nav nav-pills nav-stacked col-sm-3">
-			  <li class="active"><a href="#">Artículos</a></li>
-			  <li><a href="#">Home</a></li>
-			  <li><a href="#">Home</a></li>
-			</ul>
-		</div>
+                @yield('content')
     </body>
 </html>

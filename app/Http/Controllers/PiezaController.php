@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Persona;
+use App\Pieza;
 use Request;
 use App\Http\Controllers\Controller;
 
-class PersonaController extends Controller
+class PiezaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class PersonaController extends Controller
      */
     public function index()
     {
-        $personas = Persona::all();
-        return view('personas.index', compact('personas'));
+        $piezas = Pieza::all();
+        return view('piezas.index', compact('piezas'));
     }
 
     /**
@@ -26,9 +26,9 @@ class PersonaController extends Controller
      */
     public function create()
     {
-        $personas = Persona::all();
+        $piezas = Pieza::all();
         
-        return view('personas.create', compact('personas'));
+        return view('piezas.create', compact('piezas'));
     }
 
     /**
@@ -44,11 +44,11 @@ class PersonaController extends Controller
         ]);*/
         
         
-        $personas = Request::all();
+        $piezas = Request::all();
         
-        Persona::create($personas);
+        Pieza::create($piezas);
         
-        return redirect('personas');
+        return redirect('piezas');
     }
 
     /**
@@ -59,8 +59,8 @@ class PersonaController extends Controller
      */
     public function show($id)
     {
-        $persona = Persona::find($id);      
-        return view('personas.show', compact('persona'));
+        $pieza = Pieza::find($id);      
+        return view('piezas.show', compact('pieza'));
     }
 
     /**
@@ -71,8 +71,8 @@ class PersonaController extends Controller
      */
     public function edit($id)
     {
-        $persona = Persona::find($id);
-        return view('personas.edit', compact('persona'));
+        $pieza = Pieza::find($id);
+        return view('piezas.edit', compact('pieza'));
     }
 
     /**
@@ -87,17 +87,17 @@ class PersonaController extends Controller
         /*$this->validate($request, [
             'estado' => 'required',
             'descripcion' => 'max:200',
-            'fecharealizacionpersona' => 'date',
-            'fechaultimamodificacionpersona' => 'date|after:'.$despuesde.'|before:'.$antesde,
+            'fecharealizacionpieza' => 'date',
+            'fechaultimamodificacionpieza' => 'date|after:'.$despuesde.'|before:'.$antesde,
         ]);*/
         
-        $personaUpdate = Request::all();
+        $piezaUpdate = Request::all();
         
-        $persona = Persona::find($id);
+        $pieza = Pieza::find($id);
         
-        $persona->update($personaUpdate);
+        $pieza->update($piezaUpdate);
         
-        return redirect('personas');
+        return redirect('piezas');
     }
 
     /**
@@ -108,8 +108,8 @@ class PersonaController extends Controller
      */
     public function destroy($id)
     {
-        Persona::find($id)->delete();
+        Pieza::find($id)->delete();
         
-        return redirect('personas');
+        return redirect('piezas');
     }
 }

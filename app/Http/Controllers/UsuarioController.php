@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Persona;
+use App\Usuario;
 use Request;
 use App\Http\Controllers\Controller;
 
-class PersonaController extends Controller
+class UsuarioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class PersonaController extends Controller
      */
     public function index()
     {
-        $personas = Persona::all();
-        return view('personas.index', compact('personas'));
+        $usuarios = Usuario::all();
+        return view('usuarios.index', compact('usuarios'));
     }
 
     /**
@@ -26,9 +26,9 @@ class PersonaController extends Controller
      */
     public function create()
     {
-        $personas = Persona::all();
+        $usuarios = Usuario::all();
         
-        return view('personas.create', compact('personas'));
+        return view('usuarios.create', compact('usuarios'));
     }
 
     /**
@@ -44,11 +44,11 @@ class PersonaController extends Controller
         ]);*/
         
         
-        $personas = Request::all();
+        $usuarios = Request::all();
         
-        Persona::create($personas);
+        Usuario::create($usuarios);
         
-        return redirect('personas');
+        return redirect('usuarios');
     }
 
     /**
@@ -59,8 +59,8 @@ class PersonaController extends Controller
      */
     public function show($id)
     {
-        $persona = Persona::find($id);      
-        return view('personas.show', compact('persona'));
+        $usuario = Usuario::find($id);      
+        return view('usuarios.show', compact('usuario'));
     }
 
     /**
@@ -71,8 +71,8 @@ class PersonaController extends Controller
      */
     public function edit($id)
     {
-        $persona = Persona::find($id);
-        return view('personas.edit', compact('persona'));
+        $usuario = Usuario::find($id);
+        return view('usuarios.edit', compact('usuario'));
     }
 
     /**
@@ -87,17 +87,17 @@ class PersonaController extends Controller
         /*$this->validate($request, [
             'estado' => 'required',
             'descripcion' => 'max:200',
-            'fecharealizacionpersona' => 'date',
-            'fechaultimamodificacionpersona' => 'date|after:'.$despuesde.'|before:'.$antesde,
+            'fecharealizacionusuario' => 'date',
+            'fechaultimamodificacionusuario' => 'date|after:'.$despuesde.'|before:'.$antesde,
         ]);*/
         
-        $personaUpdate = Request::all();
+        $usuarioUpdate = Request::all();
         
-        $persona = Persona::find($id);
+        $usuario = Usuario::find($id);
         
-        $persona->update($personaUpdate);
+        $usuario->update($usuarioUpdate);
         
-        return redirect('personas');
+        return redirect('usuarios');
     }
 
     /**
@@ -108,8 +108,8 @@ class PersonaController extends Controller
      */
     public function destroy($id)
     {
-        Persona::find($id)->delete();
+        Usuario::find($id)->delete();
         
-        return redirect('personas');
+        return redirect('usuarios');
     }
 }

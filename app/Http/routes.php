@@ -12,5 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('base');
+    return view('bienvenido.index');
 });
+
+Route::resource('personas','PersonaController');
+Route::resource('piezas','PiezaController');
+Route::resource('usuarios','UsuarioController');
+Route::resource('bienvenido', 'BienvenidoController');

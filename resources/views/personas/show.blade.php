@@ -26,19 +26,19 @@
             </div>
             <div class="form-group">
                 <label for="cuit_cuil" class="control-label">Cuit/Cuil:</label>
-                <input rows="8" class="form-control" id="cuit_cuil" readonly='true' placeholder='{{ $persona->cuit_cuil }}'>
+                <input class="form-control" id="cuit_cuil" readonly='true' placeholder='{{ $persona->cuit_cuil }}'>
             </div>
             <div class="form-group">
                 <label for="domicilio" class="control-label">Domicilio:</label>
-                <input rows="8" class="form-control" id="domicilio" readonly='true' placeholder='{{ $persona->domicilio }}'>
+                <input class="form-control" id="domicilio" readonly='true' placeholder='{{ $persona->domicilio }}'>
             </div>
             <div class="form-group">
                 <label for="telefono" class="control-label">Teléfono:</label>
-                <input rows="8" class="form-control" id="telefono" readonly='true' placeholder='{{ $persona->telefono }}'>
+                <input class="form-control" id="telefono" readonly='true' placeholder='{{ $persona->telefono }}'>
             </div>
             <div class="form-group">
                 <label for="email" class="control-label">Email:</label>
-                <input rows="8" class="form-control" id="email" readonly='true' placeholder='{{ $persona->email }}'>
+                <input class="form-control" id="email" readonly='true' placeholder='{{ $persona->email }}'>
             </div>
             <div class="form-group">
                 <label for="fecha_carga" class="control-label">Fecha de carga:</label>

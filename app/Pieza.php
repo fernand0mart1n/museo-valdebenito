@@ -17,4 +17,6 @@ class Pieza extends Model
     ];
     
      public $timestamps = false;
+     
+     protected $table = 'pieza';
 }

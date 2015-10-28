@@ -113,8 +113,8 @@
 		        <li class="dropdown">
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Acciones<span class="caret"></span></a>
 		          <ul class="dropdown-menu">
-		            <li><a href="#">Algo</a></li>
-		            <li><a href="#">Algo más</a></li>
+		            <li><a href="{{url('/piezas')}}">Piezas</a></li>
+		            <li><a href="{{url('/usuarios')}}">Usuarios</a></li>
 		            <li><a href="#">Algo más todavía</a></li>
 		            <li role="separator" class="divider"></li>
 		            <li><a href="#">Otra cosa por aquí</a></li>

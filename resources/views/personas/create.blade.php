@@ -12,7 +12,7 @@
         <li class="active">Crear</li>
     </ol>
     <div class="page-header text-center">
-        <h1>Crear pieza<small>.</small></h1>
+        <h1>Crear persona<small>.</small></h1>
     </div>
     <div class="col-xs-6 col-xs-offset-3">
     @if (count($errors) > 0)

@@ -3,11 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Pieza;
-use Request;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class PiezaController extends Controller
 {
+    protected $request;
+
+    public function __construct(\Illuminate\Http\Request $request)
+    {
+        $this->request = $request;
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -37,14 +44,13 @@ class PiezaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Request $request)
     {
         /*$this->validate($request, [
             
         ]);*/
         
-        
-        $piezas = Request::all();
+        $piezas = $this->request->all();
         
         Pieza::create($piezas);
         
@@ -82,16 +88,16 @@ class PiezaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update(Request $request, $id)
     {
         /*$this->validate($request, [
             'estado' => 'required',
             'descripcion' => 'max:200',
             'fecharealizacionpieza' => 'date',
             'fechaultimamodificacionpieza' => 'date|after:'.$despuesde.'|before:'.$antesde,
-        ]);*/
+        ]);*/ 
         
-        $piezaUpdate = Request::all();
+        $piezaUpdate = $this->request->all();
         
         $pieza = Pieza::find($id);
         

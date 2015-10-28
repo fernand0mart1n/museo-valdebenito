@@ -3,11 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Persona;
-use Request;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class PersonaController extends Controller
 {
+    protected $request;
+
+    public function __construct(\Illuminate\Http\Request $request)
+    {
+        $this->request = $request;
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -37,14 +44,19 @@ class PersonaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Request $request)
     {
-        /*$this->validate($request, [
-            
-        ]);*/
+        $this->validate($request, [
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'cuit_cuil' => 'required|integer',
+            'domicilio' => 'required',
+            'telefono' => 'required',
+            'email' => 'required|email',
+            'fecha_carga' => 'date',
+        ]);
         
-        
-        $personas = Request::all();
+        $personas = $this->request->all();
         
         Persona::create($personas);
         
@@ -82,16 +94,19 @@ class PersonaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update(Request $request, $id)
     {
-        /*$this->validate($request, [
-            'estado' => 'required',
-            'descripcion' => 'max:200',
-            'fecharealizacionpersona' => 'date',
-            'fechaultimamodificacionpersona' => 'date|after:'.$despuesde.'|before:'.$antesde,
-        ]);*/
+        $this->validate($request, [
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'cuit_cuil' => 'required|integer',
+            'domicilio' => 'required',
+            'telefono' => 'required',
+            'email' => 'required|email',
+            'fecha_carga' => 'date',
+        ]);
         
-        $personaUpdate = Request::all();
+        $personaUpdate = $this->request->all();
         
         $persona = Persona::find($id);
         

@@ -14,7 +14,7 @@
             <p style="padding-left: 1cm;">Museo Regional Salesiano - Rawson, Chubut</p>
         </div>   
         <br>
-        <img src="<?php echo url('/');?>/museo.jpg" class="center" style="margin-left:142px;" width="40%" height="40%">
+        <img src="<?php echo url('/');?>/museo.jpg" class="center" style="margin-left:100px;" width="40%" height="40%">
         <img src="<?php echo url('/');?>/museo2.jpg" class="center" width="41%" height="41%">
         <hr>
     </div>

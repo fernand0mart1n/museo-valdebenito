@@ -102,36 +102,6 @@ CREATE TABLE IF NOT EXISTS `personas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Disparadores `personas`
---
-DELIMITER $$
-CREATE TRIGGER `personas_AFTER_DELETE` AFTER DELETE ON `personas`
- FOR EACH ROW BEGIN
-	INSERT INTO registro_personas(nombre, apellido, domicilio, telefono, email, modificado, usuario, id_personas)
-    VALUES (OLD.nombre, OLD.apellido, OLD.domicilio, OLD.telefono, OLD.email, NOW(), CURRENT_USER(), OLD.id);
-END
-$$
-DELIMITER ;
-DELIMITER $$
-CREATE TRIGGER `personas_AFTER_INSERT` AFTER INSERT ON `personas`
- FOR EACH ROW BEGIN
-	INSERT INTO registro_personas(nombre, apellido, domicilio, telefono, email, modificado, usuario, id_personas)
-    VALUES (NEW.nombre, NEW.apellido, NEW.domicilio, NEW.telefono, NEW.email, NOW(), CURRENT_USER(), NEW.id);
-END
-$$
-DELIMITER ;
-DELIMITER $$
-CREATE TRIGGER `personas_AFTER_UPDATE` AFTER UPDATE ON `personas`
- FOR EACH ROW BEGIN
-	INSERT INTO registro_personas(nombre, apellido, domicilio, telefono, email, modificado, usuario, id_personas)
-    VALUES (OLD.nombre, OLD.apellido, OLD.domicilio, OLD.telefono, OLD.email, NOW(), CURRENT_USER(), OLD.id);
-END
-$$
-DELIMITER ;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `pieza`
 --
 
@@ -201,7 +171,6 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 --
 ALTER TABLE `clasificacion`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_UNIQUE` (`id`),
   ADD KEY `fk_clasificacion_fondo1_idx` (`fondo`),
   ADD KEY `fk_clasificacion_usuarios1_idx` (`usuario_carga`);
 
@@ -210,14 +179,12 @@ ALTER TABLE `clasificacion`
 --
 ALTER TABLE `donacion`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `iddonacion_UNIQUE` (`id`);
 
 --
 -- Indices de la tabla `donante`
 --
 ALTER TABLE `donante`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_UNIQUE` (`id`),
   ADD KEY `fk_donante_personas_idx` (`persona`);
 
 --
@@ -225,7 +192,6 @@ ALTER TABLE `donante`
 --
 ALTER TABLE `fondo`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_UNIQUE` (`id`),
   ADD KEY `fk_fondo_usuarios1_idx` (`usuario_carga`);
 
 --
@@ -233,7 +199,6 @@ ALTER TABLE `fondo`
 --
 ALTER TABLE `foto`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_UNIQUE` (`id`),
   ADD KEY `fk_foto_pieza1_idx` (`pieza`);
 
 --
@@ -241,14 +206,12 @@ ALTER TABLE `foto`
 --
 ALTER TABLE `personas`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `idpersonas_UNIQUE` (`id`);
 
 --
 -- Indices de la tabla `pieza`
 --
 ALTER TABLE `pieza`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `idpieza_UNIQUE` (`id`),
   ADD KEY `fk_pieza_donacion1_idx` (`clasificacion`);
 
 --
@@ -256,8 +219,6 @@ ALTER TABLE `pieza`
 --
 ALTER TABLE `registro_personas`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_UNIQUE` (`id`),
-  ADD UNIQUE KEY `id_personas_UNIQUE` (`id_personas`),
   ADD KEY `fk_registro_personas_personas1_idx` (`id_personas`);
 
 --
@@ -265,7 +226,6 @@ ALTER TABLE `registro_personas`
 --
 ALTER TABLE `revision`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_UNIQUE` (`id`),
   ADD KEY `fk_revision_usuarios1_idx` (`usuario_revision`),
   ADD KEY `fk_revision_pieza1_idx` (`pieza`);
 
@@ -274,7 +234,6 @@ ALTER TABLE `revision`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_UNIQUE` (`id`),
   ADD KEY `fk_usuarios_personas1_idx` (`persona`);
 
 --

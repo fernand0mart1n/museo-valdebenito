@@ -170,36 +170,30 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 -- Indices de la tabla `clasificacion`
 --
 ALTER TABLE `clasificacion`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_clasificacion_fondo1_idx` (`fondo`),
-  ADD KEY `fk_clasificacion_usuarios1_idx` (`usuario_carga`);
-
+  ADD PRIMARY KEY (`id`);
 --
 -- Indices de la tabla `donacion`
 --
 ALTER TABLE `donacion`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `donante`
 --
 ALTER TABLE `donante`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_donante_personas_idx` (`persona`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `fondo`
 --
 ALTER TABLE `fondo`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_fondo_usuarios1_idx` (`usuario_carga`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `foto`
 --
 ALTER TABLE `foto`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_foto_pieza1_idx` (`pieza`);
+  ADD PRIMARY KEY (`id`)
 
 --
 -- Indices de la tabla `personas`
@@ -211,30 +205,25 @@ ALTER TABLE `personas`
 -- Indices de la tabla `pieza`
 --
 ALTER TABLE `pieza`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_pieza_donacion1_idx` (`clasificacion`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `registro_personas`
 --
 ALTER TABLE `registro_personas`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_registro_personas_personas1_idx` (`id_personas`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `revision`
 --
 ALTER TABLE `revision`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_revision_usuarios1_idx` (`usuario_revision`),
-  ADD KEY `fk_revision_pieza1_idx` (`pieza`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_usuarios_personas1_idx` (`persona`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas

@@ -1,25 +1,25 @@
 @extends('base')
 
 @section('title')
-    Listado de personas
+    Listado de donantes
 @stop
 
 @section('head')
     <script>
-        function eliminarPersona(persona_id){
+        function eliminarDonante(donante_id){
             
-            if(!confirm("¿Está seguro que desea eliminar esta persona?"))
+            if(!confirm("¿Está seguro que desea eliminar esta donante?"))
                 return;
             
             $.ajax({
-                url: "{{ url('personas') }}/" + persona_id,
+                url: "{{ url('donantes') }}/" + donante_id,
                 type: 'POST',
                 data: {
                     _token: "{{ csrf_token() }}",
                     _method: 'DELETE'
                 },
                 success: function(response) {
-                    window.location.href = "{{ route('personas.index') }}";
+                    window.location.href = "{{ route('donantes.index') }}";
                 }
             });
         }
@@ -30,42 +30,32 @@
 <div class="col-md-10 col-md-offset-1">
     <ol class="breadcrumb">
         <li><a href="{{ route('bienvenido.index') }}">Inicio</a></li>
-        <li class="active">Personas</li>
+        <li class="active">Donantes</li>
     </ol>
-    <h1>Personas</h1>
+    <h1>Donantes</h1>
     <br>
-    <a href="{{url('/personas/create')}}" class="btn btn-success">Crear Persona</a>
+    <a href="{{url('/donantes/create')}}" class="btn btn-success">Cargar donante</a>
     <hr>
     <table class="table table-striped table-bordered table-hover">
         <thead>
         <tr class="bg-primary">
             <th>ID</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Cuit/Cuil</th>
-            <th>Domicilio</th>
-            <th>Teléfono</th>
-            <th>Email</th>
+            <th>Persona</th>
             <th>Fecha de carga</th>
             <th>Acciones</th>
         </tr>
         </thead>
         <tbody>
-        @foreach ($personas as $persona)
+        @foreach ($donantes as $donante)
             <tr>
-                <td>{{ $persona->id }}</td>
-                <td>{{ $persona->nombre }}</td>
-                <td>{{ $persona->apellido }}</td>
-                <td>{{ $persona->cuit_cuil }}</td>
-                <td>{{ $persona->domicilio }}</td>
-                <td>{{ $persona->telefono }}</td>
-                <td>{{ $persona->email }}</td>
-                <td>{{ date("d/m/Y", strtotime($persona->fecha_carga)) }}</td>
+                <td>{{ $donante->id }}</td>
+                <td>{{ $donante->persona_id }}</td>
+                <td>{{ date("d/m/Y", strtotime($donante->fecha_carga)) }}</td>
                 <td>
                     <div class="btn btn-group btn-block">
-                        <a href="{{url('personas', $persona->id)}}" class="btn btn-info" title="Ver"><i class="glyphicon glyphicon-eye-open"></i></a>
-                        <a href="{{route('personas.edit', $persona->id)}}" class="btn btn-warning" title="Editar"><i class="glyphicon glyphicon-edit"></i></a>
-                        <a class="btn btn-danger" title="Eliminar" onclick="eliminarPersona({{ $persona->id }})"><i class="glyphicon glyphicon-trash"></i></a>
+                        <a href="{{url('donantes', $donante->id)}}" class="btn btn-info" title="Ver"><i class="glyphicon glyphicon-eye-open"></i></a>
+                        <a href="{{route('donantes.edit', $donante->id)}}" class="btn btn-warning" title="Editar"><i class="glyphicon glyphicon-edit"></i></a>
+                        <a class="btn btn-danger" title="Eliminar" onclick="eliminarDonante({{ $donante->id }})"><i class="glyphicon glyphicon-trash"></i></a>
                     </div>
                 </td>
             </tr>

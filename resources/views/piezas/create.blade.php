@@ -32,7 +32,7 @@
         <div class="form-group">
             {!! Form::label('clasificacion', 'Clasificación:', array('class' => 'control-label col-xs-4')) !!}
             <div class='col-xs-8'>
-                {!! Form::text('clasificacion', null, ['class'=>'form-control', 'required' => 'true', 'placeholder' => 'Clasificación', 'disabled' => 'true']) !!}
+                {!! Form::text('clasificacion', null, ['class'=>'form-control', 'required' => 'true', 'placeholder' => 'Clasificación']) !!}
             </div>
         </div>
         <div class="form-group">

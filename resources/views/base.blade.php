@@ -57,8 +57,8 @@
                         <li class="dropdown">
 		          <a href="{{url('/fondos')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>&nbsp;&nbsp;Fondos</a>
 		          <ul class="dropdown-menu">
-		            <li><a href="{{url('/fondos')}}">Ver todas las donaciones</a></li>
-		            <li><a href="{{url('/fondos/create')}}">Cargar una donación</a></li>
+		            <li><a href="{{url('/fondos')}}">Ver todos los fondos</a></li>
+		            <li><a href="{{url('/fondos/create')}}">Cargar un fondo</a></li>
 		          </ul>
 		        </li>
                         <li class="dropdown">

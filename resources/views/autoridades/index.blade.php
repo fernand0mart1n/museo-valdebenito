@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="col-md-10 col-md-offset-1">
-        <div class="col-xs-4 col-xs-offset-4">
+        <div class="col-xs-6 col-xs-offset-3">
             <div class="page-header text-center">
                 <h1>Autoridades<small>.</small></h1>
             </div>
@@ -45,4 +45,5 @@
             </a>
         </div>
     </div>
+    <hr>
 @stop

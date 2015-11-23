@@ -15,16 +15,7 @@
         <h2>Ver datos de pieza<small>.</small></h2>
     </div>
     <div class="col-xs-8 col-xs-offset-2">
-        <form class="form-horizontal"> 
-            
-        'clasificacion',
-        'descripcion',
-        'procedencia',
-        'autor',
-        'fecha_ejecutacion',
-        'tema',
-        'observacion'
-            
+        <form class="form-horizontal">             
             <div class="form-group">
                 <label for="clasificacion" class="control-label col-xs-4">Clasificación:</label>
                 <div class='col-xs-8'>
@@ -64,7 +55,7 @@
             <div class="form-group">
                 <label for="descripcion" class="control-label col-xs-4">Descripción:</label>
                 <div class='col-xs-8'>
-                    <textarea rows="4" class="form-control" id="descripcion" placeholder="{{ $pieza->descripcion }}" readonly>
+                    <textarea rows="4" class="form-control" id="descripcion" readonly>{{ $pieza->descripcion }}</textarea>
                 </div>
             </div>
             <div class="form-group">

@@ -1,25 +1,25 @@
 @extends('base')
 
 @section('title')
-    Listado de personas
+    Listado de revisiones
 @stop
 
 @section('head')
     <script>
-        function eliminarPersona(persona_id){
+        function eliminarRevision(revision_id){
             
-            if(!confirm("¿Está seguro que desea eliminar esta persona?"))
+            if(!confirm("¿Está seguro que desea eliminar esta revisión?"))
                 return;
             
             $.ajax({
-                url: "{{ url('personas') }}/" + persona_id,
+                url: "{{ url('revisiones') }}/" + revision_id,
                 type: 'POST',
                 data: {
                     _token: "{{ csrf_token() }}",
                     _method: 'DELETE'
                 },
                 success: function(response) {
-                    window.location.href = "{{ route('personas.index') }}";
+                    window.location.href = "{{ route('revisiones.index') }}";
                 }
             });
         }
@@ -30,42 +30,38 @@
 <div class="col-md-10 col-md-offset-1">
     <ol class="breadcrumb">
         <li><a href="{{ route('bienvenido.index') }}">Inicio</a></li>
-        <li class="active">Personas</li>
+        <li class="active">Revisiones</li>
     </ol>
-    <h1>Personas</h1>
+    <h1>Revisiones</h1>
     <br>
-    <a href="{{url('/personas/create')}}" class="btn btn-success">Crear Persona</a>
+    <a href="{{url('/revisiones/create')}}" class="btn btn-success">Crear revisión</a>
     <hr>
     <table class="table table-striped table-bordered table-hover">
         <thead>
         <tr class="bg-primary">
             <th>ID</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Cuit/Cuil</th>
-            <th>Domicilio</th>
-            <th>Teléfono</th>
-            <th>Email</th>
-            <th>Fecha de carga</th>
+            <th>Usuario</th>
+            <th>Pieza</th>
+            <th>Fecha de revisión</th>
+            <th>Estado de conversación</th>
+            <th>Ubicación</th>
             <th>Acciones</th>
         </tr>
         </thead>
         <tbody>
-        @foreach ($personas as $persona)
+        @foreach ($revisiones as $revision)
             <tr>
-                <td>{{ $persona->id }}</td>
-                <td>{{ $persona->nombre }}</td>
-                <td>{{ $persona->apellido }}</td>
-                <td>{{ $persona->cuit_cuil }}</td>
-                <td>{{ $persona->domicilio }}</td>
-                <td>{{ $persona->telefono }}</td>
-                <td>{{ $persona->email }}</td>
-                <td>{{ date("d/m/Y", strtotime($persona->fecha_carga)) }}</td>
+                <td>{{ $revision->id }}</td>
+                <td>{{ $revision->usuario_id_revision }}</td>
+                <td>{{ $revision->pieza }}</td>
+                <td>{{ date("d/m/Y", strtotime($revision->fecha_revision)) }}</td>
+                <td>{{ $revision->estado_conversacion }}</td>
+                <td>{{ $revision->ubicacion }}</td>
                 <td>
                     <div class="btn btn-group btn-block">
-                        <a href="{{url('personas', $persona->id)}}" class="btn btn-info" title="Ver"><i class="glyphicon glyphicon-eye-open"></i></a>
-                        <a href="{{route('personas.edit', $persona->id)}}" class="btn btn-warning" title="Editar"><i class="glyphicon glyphicon-edit"></i></a>
-                        <a class="btn btn-danger" title="Eliminar" onclick="eliminarPersona({{ $persona->id }})"><i class="glyphicon glyphicon-trash"></i></a>
+                        <a href="{{url('revisiones', $revision->id)}}" class="btn btn-info" title="Ver"><i class="glyphicon glyphicon-eye-open"></i></a>
+                        <a href="{{route('revisiones.edit', $revision->id)}}" class="btn btn-warning" title="Editar"><i class="glyphicon glyphicon-edit"></i></a>
+                        <a class="btn btn-danger" title="Eliminar" onclick="eliminarRevision({{ $revision->id }})"><i class="glyphicon glyphicon-trash"></i></a>
                     </div>
                 </td>
             </tr>

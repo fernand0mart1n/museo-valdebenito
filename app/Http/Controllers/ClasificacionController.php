@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Clasificacion;
+use App\Usuario;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -23,6 +24,11 @@ class ClasificacionController extends Controller
     public function index()
     {
         $clasificaciones = Clasificacion::all();
+
+        foreach ($clasificaciones as $clasificacion) {
+            $clasificacion->usuario_id_carga = Usuario::find($clasificacion->usuario_id_carga);
+        }
+
         return view('clasificaciones.index', compact('clasificaciones'));
     }
 
@@ -34,6 +40,10 @@ class ClasificacionController extends Controller
     public function create()
     {
         $clasificaciones = Clasificacion::all();
+
+        foreach ($clasificaciones as $clasificacion) {
+            $clasificacion->usuario_id_carga = Usuario::find($clasificacion->usuario_id_carga);
+        }
         
         return view('clasificaciones.create', compact('clasificaciones'));
     }
@@ -45,18 +55,12 @@ class ClasificacionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        /*$this->validate($request, [
-            'nombre' => 'required',
-            'apellido' => 'required',
-            'cuit_cuil' => 'required|integer',
-            'domicilio' => 'required',
-            'telefono' => 'required',
-            'email' => 'required|email',
-            'fecha_carga' => 'date',
-        ]);*/
-        
+    {        
         $clasificaciones = $this->request->all();
+
+        foreach ($clasificaciones as $clasificacion) {
+            $clasificacion->usuario_id_carga = Usuario::find($clasificacion->usuario_id_carga);
+        }
         
         Clasificacion::create($clasificaciones);
         
@@ -72,6 +76,9 @@ class ClasificacionController extends Controller
     public function show($id)
     {
         $clasificacion = Clasificacion::find($id);      
+
+        $clasificacion->usuario_id_carga = Usuario::find($clasificacion->usuario_id_carga);
+
         return view('clasificaciones.show', compact('clasificacion'));
     }
 
@@ -95,17 +102,7 @@ class ClasificacionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        /*$this->validate($request, [
-            'nombre' => 'required',
-            'apellido' => 'required',
-            'cuit_cuil' => 'required|integer',
-            'domicilio' => 'required',
-            'telefono' => 'required',
-            'email' => 'required|email',
-            'fecha_carga' => 'date',
-        ]);*/
-        
+    {        
         $clasificacionUpdate = $this->request->all();
         
         $clasificacion = Clasificacion::find($id);

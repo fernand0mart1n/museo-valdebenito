@@ -1,25 +1,25 @@
 @extends('base')
 
 @section('title')
-    Listado de personas
+    Listado de donaciones
 @stop
 
 @section('head')
     <script>
-        function eliminarPersona(persona_id){
+        function eliminarDonacion(donacion_id){
             
-            if(!confirm("¿Está seguro que desea eliminar esta persona?"))
+            if(!confirm("¿Está seguro que desea eliminar esta donación?"))
                 return;
             
             $.ajax({
-                url: "{{ url('personas') }}/" + persona_id,
+                url: "{{ url('donaciones') }}/" + donacion_id,
                 type: 'POST',
                 data: {
                     _token: "{{ csrf_token() }}",
                     _method: 'DELETE'
                 },
                 success: function(response) {
-                    window.location.href = "{{ route('personas.index') }}";
+                    window.location.href = "{{ route('donaciones.index') }}";
                 }
             });
         }
@@ -30,42 +30,34 @@
 <div class="col-md-10 col-md-offset-1">
     <ol class="breadcrumb">
         <li><a href="{{ route('bienvenido.index') }}">Inicio</a></li>
-        <li class="active">Personas</li>
+        <li class="active">Donaciones</li>
     </ol>
-    <h1>Personas</h1>
+    <h1>Donaciones</h1>
     <br>
-    <a href="{{url('/personas/create')}}" class="btn btn-success">Crear Persona</a>
+    <a href="{{url('/donaciones/create')}}" class="btn btn-success">Cargar donación</a>
     <hr>
     <table class="table table-striped table-bordered table-hover">
         <thead>
         <tr class="bg-primary">
             <th>ID</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Cuit/Cuil</th>
-            <th>Domicilio</th>
-            <th>Teléfono</th>
-            <th>Email</th>
-            <th>Fecha de carga</th>
+            <th>Donante</th>
+            <th>Pieza</th>
+            <th>Fecha de donación</th>
             <th>Acciones</th>
         </tr>
         </thead>
         <tbody>
-        @foreach ($personas as $persona)
+        @foreach ($donaciones as $donacion)
             <tr>
-                <td>{{ $persona->id }}</td>
-                <td>{{ $persona->nombre }}</td>
-                <td>{{ $persona->apellido }}</td>
-                <td>{{ $persona->cuit_cuil }}</td>
-                <td>{{ $persona->domicilio }}</td>
-                <td>{{ $persona->telefono }}</td>
-                <td>{{ $persona->email }}</td>
-                <td>{{ date("d/m/Y", strtotime($persona->fecha_carga)) }}</td>
+                <td>{{ $donacion->id }}</td>
+                <td>{{ $donacion->donante_id }}</td>
+                <td>{{ $donacion->pieza }}</td>
+                <td>{{ date("d/m/Y", strtotime($donacion->fecha_donacion)) }}</td>
                 <td>
                     <div class="btn btn-group btn-block">
-                        <a href="{{url('personas', $persona->id)}}" class="btn btn-info" title="Ver"><i class="glyphicon glyphicon-eye-open"></i></a>
-                        <a href="{{route('personas.edit', $persona->id)}}" class="btn btn-warning" title="Editar"><i class="glyphicon glyphicon-edit"></i></a>
-                        <a class="btn btn-danger" title="Eliminar" onclick="eliminarPersona({{ $persona->id }})"><i class="glyphicon glyphicon-trash"></i></a>
+                        <a href="{{url('donaciones', $donacion->id)}}" class="btn btn-info" title="Ver"><i class="glyphicon glyphicon-eye-open"></i></a>
+                        <a href="{{route('donaciones.edit', $donacion->id)}}" class="btn btn-warning" title="Editar"><i class="glyphicon glyphicon-edit"></i></a>
+                        <a class="btn btn-danger" title="Eliminar" onclick="eliminarPersona({{ $donacion->id }})"><i class="glyphicon glyphicon-trash"></i></a>
                     </div>
                 </td>
             </tr>

@@ -20,6 +20,8 @@ Route::resource('piezas','PiezaController');
 Route::resource('usuarios','UsuarioController');
 Route::resource('bienvenido', 'BienvenidoController',
                 ['only' => ['index']]);
+Route::resource('autoridades', 'AutoridadesController',
+                ['only' => ['index']]);
 Route::resource('donantes','DonanteController');
 Route::resource('donaciones','DonacionController');
 Route::resource('revisiones','RevisionController');

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 
-class BienvenidoController extends Controller
+class AutoridadesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,6 +13,6 @@ class BienvenidoController extends Controller
      */
     public function index()
     {
-        return view('bienvenido.index');
+        return view('autoridades.index');
     }
 }

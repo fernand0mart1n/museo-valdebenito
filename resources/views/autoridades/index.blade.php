@@ -45,5 +45,11 @@
             </a>
         </div>
     </div>
-    <hr>
+    <div class="col-xs-12">
+      <footer>
+        <hr>
+        <p align="center">2015 - Todos los derechos reservados.</p>
+        <br>
+      </footer>
+    </div>
 @stop

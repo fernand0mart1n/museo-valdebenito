@@ -33,92 +33,79 @@
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
 		        <li><a href="{{url('/')}}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Inicio<span class="sr-only">(current)</span></a></li>
-                        <li class="dropdown">
+                <li class="dropdown">
 		          <a href="{{url('/clasificaciones')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;&nbsp;Clasificaciones</a>
 		          <ul class="dropdown-menu">
 		            <li><a href="{{url('/clasificaciones')}}">Ver lista de clasificaciones</a></li>
 		            <li><a href="{{url('/clasificaciones/create')}}">Crear una clasificación</a></li>
 		          </ul>
 		        </li>
-                        <li class="dropdown">
+                <li class="dropdown">
 		          <a href="{{url('/donaciones')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span>&nbsp;&nbsp;Donaciones</a>
 		          <ul class="dropdown-menu">
 		            <li><a href="{{url('/donaciones')}}">Ver todas las donaciones</a></li>
 		            <li><a href="{{url('/donaciones/create')}}">Cargar una donación</a></li>
 		          </ul>
 		        </li>
-                        <li class="dropdown">
-		          <a href="{{url('/donantes')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;&nbsp;Donantes</a>
-		          <ul class="dropdown-menu">
-		            <li><a href="{{url('/donantes')}}">Ver listado de donantes</a></li>
-		            <li><a href="{{url('/donantes/create')}}">Agregar un donante</a></li>
-		          </ul>
-		        </li>
-                        <li class="dropdown">
+                <li class="dropdown">
 		          <a href="{{url('/fondos')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>&nbsp;&nbsp;Fondos</a>
 		          <ul class="dropdown-menu">
 		            <li><a href="{{url('/fondos')}}">Ver todos los fondos</a></li>
 		            <li><a href="{{url('/fondos/create')}}">Cargar un fondo</a></li>
 		          </ul>
 		        </li>
-                        <li class="dropdown">
+                <li class="dropdown">
 		          <a href="{{url('/fotos')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span>&nbsp;&nbsp;Fotos</a>
 		          <ul class="dropdown-menu">
 		            <li><a href="{{url('/fotos')}}">Ver todas las fotos</a></li>
 		            <li><a href="{{url('/fotos/create')}}">Subir una foto</a></li>
 		          </ul>
 		        </li>
-                        <li class="dropdown">
-		          <a href="{{url('/personas')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>&nbsp;&nbsp;Personas</a>
+                <li class="dropdown">
+		          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Personas</a>
 		          <ul class="dropdown-menu">
+		          	<li><a href="{{url('/usuarios')}}">Ver listado de usuarios</a></li>
+		            <li><a href="{{url('/usuarios/create')}}">Crear un usuario</a></li>
+		            <li class="divider"></li>
+		            <li><a href="{{url('/donantes')}}">Ver listado de donantes</a></li>
+		            <li><a href="{{url('/donantes/create')}}">Agregar un donante</a></li>
+		            <li class="divider"></li>
 		            <li><a href="{{url('/personas')}}">Ver listado de personas</a></li>
 		            <li><a href="{{url('/personas/create')}}">Cargar una persona</a></li>
 		          </ul>
 		        </li>
-                        <li class="dropdown">
+                <li class="dropdown">
 		          <a href="{{url('/piezas')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>&nbsp;&nbsp;Piezas</a>
 		          <ul class="dropdown-menu">
 		            <li><a href="{{url('/piezas')}}">Ver todas las piezas</a></li>
 		            <li><a href="{{url('/piezas/create')}}">Cargar una pieza</a></li>
 		          </ul>
 		        </li>
-                        <li class="dropdown">
+                <li class="dropdown">
 		          <a href="{{url('/revisiones')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-stats" aria-hidden="true"></span>&nbsp;&nbsp;Revisiones</a>
 		          <ul class="dropdown-menu">
 		            <li><a href="{{url('/revisiones')}}">Ver todas las revisiones</a></li>
 		            <li><a href="{{url('/revisiones/create')}}">Cargar una revisión</a></li>
 		          </ul>
 		        </li>
-                        <li class="dropdown">
-		          <a href="{{url('/usuarios')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Usuarios</a>
-		          <ul class="dropdown-menu">
-		            <li><a href="{{url('/usuarios')}}">Ver listado de usuarios</a></li>
-		            <li><a href="{{url('/usuarios/create')}}">Crear un usuario</a></li>
-		          </ul>
-		        </li>
 		      </ul>
-		      <form class="navbar-form navbar-left" role="search">
-		        <div class="form-group">
-		          <input type="text" class="form-control" placeholder="Búsqueda">
-		        </div>
-		        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;&nbsp;Buscar</button>
-		      </form>
 		      <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{{url('/autoridades')}}"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Autoridades y contacto</a></li>
-                        <li><a href="{{url('/autoridades')}}">Ingresar</a></li>
-		        <!--li class="dropdown">
-		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mi sesión&nbsp;<span class="caret"></span></a>
-		          <ul class="dropdown-menu">
-		            <li><a href="#">Mi cuenta</a></li>
-		            <li><a href="#">Actualizar datos</a></li>
-		            <li role="separator" class="divider"></li>
-		            <li><a href="#">Salir</a></li>
-		          </ul>
+                    <li><a href="{{url('/autoridades')}}"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;&nbsp;Autoridades y contacto</a></li>
+                    <!-- SI NO ESTA LOGUEADO!!!-->
+                    <li><a href="{{url('/autoridades')}}">Ingresar</a></li>
+		        	<!--li class="dropdown"> SI ESTA LOGUEADO!!!
+		          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mi sesión&nbsp;<span class="caret"></span></a>
+		          	<ul class="dropdown-menu">
+			            <li><a href="#">Mi cuenta</a></li>
+			            <li><a href="#">Actualizar datos</a></li>
+			            <li role="separator" class="divider"></li>
+			            <li><a href="#">Salir</a></li>
+		          	</ul>
 		        </li-->
 		      </ul>
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
 		</nav>
-                @yield('content')
+        @yield('content')
     </body>
 </html>

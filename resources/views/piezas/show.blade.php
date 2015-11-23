@@ -32,12 +32,6 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="descripcion" class="control-label col-xs-4">Descripción:</label>
-                <div class='col-xs-8'>
-                    <input type="text" class="form-control" id="descripcion" placeholder="{{ $pieza->descripcion }}" readonly>
-                </div>
-            </div>
-            <div class="form-group">
                 <label for="procedencia" class="control-label col-xs-4">Procedencia:</label>
                 <div class='col-xs-8'>
                     <input class="form-control" id="procedencia" readonly='true' placeholder='{{ $pieza->procedencia }}'>
@@ -64,7 +58,13 @@
             <div class="form-group">
                 <label for="observacion" class="control-label col-xs-4">Observación:</label>
                 <div class='col-xs-8'>
-                    <input type="text" class="form-control" id="observacion" placeholder="{{ $pieza->observacion }}" readonly>
+                    <textarea rows="4" class="form-control" id="observacion" placeholder="{{ $pieza->observacion }}" readonly>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="descripcion" class="control-label col-xs-4">Descripción:</label>
+                <div class='col-xs-8'>
+                    <textarea rows="4" class="form-control" id="descripcion" placeholder="{{ $pieza->descripcion }}" readonly>
                 </div>
             </div>
             <div class="form-group">

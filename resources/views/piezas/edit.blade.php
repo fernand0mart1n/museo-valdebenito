@@ -36,12 +36,6 @@
             </div>
         </div>
         <div class="form-group">
-            {!! Form::label('descripcion', 'Descripción:', array('class' => 'control-label col-xs-4')) !!}
-            <div class='col-xs-8'>
-                {!! Form::text('descripcion', null, ['class'=>'form-control', 'required' => 'true', 'placeholder' => 'Descripción', 'maxlength' => '45']) !!}
-            </div>
-        </div>
-        <div class="form-group">
             {!! Form::label('procedencia', 'Procedencia:', array('class' => 'control-label col-xs-4')) !!}
             <div class='col-xs-8'>
                 {!! Form::text('procedencia', null, ['class'=>'form-control',  'placeholder' => 'Procedencia', 'required' => 'true', 'maxlength' => '45']) !!}
@@ -68,7 +62,13 @@
         <div class="form-group">
             {!! Form::label('observacion', 'Observación:', array('class' => 'control-label col-xs-4')) !!}
             <div class='col-xs-8'>
-                {!! Form::text('observacion', null, ['class'=>'form-control', 'placeholder' => 'Observación', 'required' => 'true', 'maxlength' => '45']) !!}
+                {!! Form::textarea('observacion', null, ['class'=>'form-control', 'placeholder' => 'Observación', 'required' => 'true', 'maxlength' => '45', 'rows' => '4']) !!}
+            </div>
+        </div>
+        <div class="form-group">
+            {!! Form::label('descripcion', 'Descripción:', array('class' => 'control-label col-xs-4')) !!}
+            <div class='col-xs-8'>
+                {!! Form::textarea('descripcion', null, ['class'=>'form-control', 'required' => 'true', 'placeholder' => 'Descripción', 'maxlength' => '45', 'rows' => '4']) !!}
             </div>
         </div>
         <div class="form-group">

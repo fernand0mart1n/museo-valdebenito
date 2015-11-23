@@ -7,16 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Pieza extends Model
 {
     protected $fillable=[
-        'clasificacion',
+        'clasificacion_id',
         'descripcion',
         'procedencia',
         'autor',
-        'fecha_ejecutacion',
+        'fecha_ejecucion',
         'tema',
         'observacion',
     ];
     
-     public $timestamps = false;
-     
-     protected $table = 'pieza';
+    public $timestamps = false;
+    protected $table = 'pieza';
 }

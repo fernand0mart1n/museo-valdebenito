@@ -4,13 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Usuario extends Model
+class Donante extends Model
 {
     protected $fillable=[
         'persona_id',
-        'nombre_usuario',
-        'password',
+        'fecha_carga',
     ];
     
-     public $timestamps = false;
+    public $timestamps = false;
+    protected $table = 'donante';
 }

@@ -18,4 +18,11 @@ Route::get('/', function () {
 Route::resource('personas','PersonaController');
 Route::resource('piezas','PiezaController');
 Route::resource('usuarios','UsuarioController');
-Route::resource('bienvenido', 'BienvenidoController');
+Route::resource('bienvenido', 'BienvenidoController',
+                ['only' => ['index']]);
+Route::resource('donantes','DonanteController');
+Route::resource('donaciones','DonacionController');
+Route::resource('revisiones','RevisionController');
+Route::resource('fondos','FondoController');
+Route::resource('clasificaciones','ClasificacionController');
+Route::resource('fotos','FotoController');

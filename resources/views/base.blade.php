@@ -13,7 +13,13 @@
         <script src="<?php echo url('/');?>/assets/js/respond.min.js"></script>
         <script src="<?php echo url('/');?>/assets/js/hoverintent.min.js"></script>
         <script src="<?php echo url('/');?>/assets/js/dropdowns.js"></script>
-        <link rel="shortcut icon" href="{{ asset('favicon.png') }}" >
+        <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
+         <style>
+             #ingresar:hover, #inicio:hover, #aut:hover
+             {
+                 background:#1552a5;
+             }
+        </style>
         @yield('head')
     </head>
     <body>
@@ -32,7 +38,7 @@
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
-		        <li><a href="{{url('/')}}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Inicio<span class="sr-only">(current)</span></a></li>
+		        <li><a href="{{url('/')}}" id="inicio"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Inicio<span class="sr-only">(current)</span></a></li>
                 <li class="dropdown">
 		          <a href="{{url('/clasificaciones')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;Clasificaciones</a>
 		          <ul class="dropdown-menu">
@@ -89,20 +95,22 @@
 		          </ul>
 		        </li>
                         <li>
-                            <a href="{{url('/autoridades')}}"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;Autoridades y contacto</a></li>
+                            <a href="{{url('/autoridades')}}" id="aut"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;Autoridades y contacto</a></li>
 		      </ul>
 		      <ul class="nav navbar-nav navbar-right">
-                    <!-- SI NO ESTA LOGUEADO!!!-->
-                    <li><a href="{{url('')}}" style="margin-right: 1cm;"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Ingresar</a></li>
-		        	<!--li class="dropdown"> SI ESTA LOGUEADO!!!
-		          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mi sesión&nbsp;<span class="caret"></span></a>
-		          	<ul class="dropdown-menu">
-			            <li><a href="#">Mi cuenta</a></li>
-			            <li><a href="#">Actualizar datos</a></li>
-			            <li role="separator" class="divider"></li>
-			            <li><a href="#">Salir</a></li>
-		          	</ul>
-		        </li-->
+                        @if (Auth::check())
+                            <li class="dropdown"> 
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mi sesión&nbsp;<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Mi cuenta</a></li>
+                                    <li><a href="#">Actualizar datos</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">Salir</a></li>
+                                </ul>
+                            </li>
+                        @else
+                            <li><a href="{{route('auth/login')}}" style="margin-right: 1cm;" id="ingresar"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Ingresar</a></li>
+                        @endif
 		      </ul>
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->

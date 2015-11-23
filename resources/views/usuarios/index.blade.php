@@ -49,7 +49,7 @@
         @foreach ($usuarios as $usuario)
             <tr>
                 <td>{{ $usuario->id }}</td>
-                <td>{{ $usuario->persona }}</td>
+                <td>{{ $usuario->persona_id->apellido }}, {{ $usuario->persona_id->nombre }}</td>
                 <td>{{ $usuario->nombre_usuario }}</td>
                 <td>
                     <div class="btn btn-group btn-block">

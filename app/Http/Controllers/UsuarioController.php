@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Usuario;
+use App\Persona;
 use Request;
 use App\Http\Controllers\Controller;
 
@@ -16,6 +17,11 @@ class UsuarioController extends Controller
     public function index()
     {
         $usuarios = Usuario::all();
+        
+        foreach ($usuarios as $usuario) {
+            $usuario->persona_id = Persona::find($usuario->persona_id);
+        }
+        
         return view('usuarios.index', compact('usuarios'));
     }
 

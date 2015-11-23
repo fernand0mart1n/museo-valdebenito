@@ -28,9 +28,9 @@
     <div class="col-xs-8 col-xs-offset-2">
         {!! Form::model($usuario,['method' => 'PATCH', 'class' => 'form-horizontal responsive', 'route'=>['usuarios.update',$usuario->id]]) !!}
         <div class="form-group">
-            {!! Form::label('persona', 'Persona:', array('class' => 'control-label col-xs-4')) !!}
+            {!! Form::label('persona_id', 'Persona:', array('class' => 'control-label col-xs-4')) !!}
             <div class='col-xs-8'>
-                {!! Form::text('persona', null, ['class'=>'form-control', 'required' => 'true', 'placeholder' => 'Persona', 'disabled' => 'true']) !!}
+                {!! Form::text('persona_id', null, ['class'=>'form-control', 'required' => 'true', 'placeholder' => 'Persona']) !!}
             </div>
         </div>
         <div class="form-group">

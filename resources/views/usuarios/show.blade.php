@@ -23,9 +23,9 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="persona" class="control-label col-xs-4">Persona:</label>
+                <label for="persona_id" class="control-label col-xs-4">Persona:</label>
                 <div class='col-xs-8'>
-                    <input type="text" class="form-control" id="persona" placeholder="{{ $usuario->persona }}" readonly>
+                    <input type="text" class="form-control" id="persona_id" placeholder="{{ $usuario->persona_id }}" readonly>
                 </div>
             </div>
             <div class="form-group">
@@ -45,7 +45,7 @@
                     <a href="{{ url('usuarios')}}" class="btn btn-default">
                         <i class="glyphicon glyphicon-chevron-left"></i> Volver
                     </a>
-                    <a href="{{ route('usuarios.edit', $persona->id) }}" class="btn btn-warning pull-right" title="Editar">
+                    <a href="{{ route('usuarios.edit', $usuario->id) }}" class="btn btn-warning pull-right" title="Editar">
                         <i class="glyphicon glyphicon-edit"></i> Editar
                     </a>
                 </div>

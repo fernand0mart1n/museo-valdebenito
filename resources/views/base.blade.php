@@ -64,7 +64,7 @@
                 <li class="dropdown">
 		          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;Personas</a>
 		          <ul class="dropdown-menu">
-		          	<li><a href="{{url('/usuarios')}}">Ver listado de usuarios</a></li>
+		            <li><a href="{{url('/usuarios')}}">Ver listado de usuarios</a></li>
 		            <li><a href="{{url('/usuarios/create')}}">Crear un usuario</a></li>
 		            <li class="divider"></li>
 		            <li><a href="{{url('/donantes')}}">Ver listado de donantes</a></li>
@@ -75,7 +75,7 @@
 		          </ul>
 		        </li>
                 <li class="dropdown">
-		          <a href="{{url('/piezas')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>&nbsp;Piezas</a>
+		          <a href="{{url('/piezas')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>&nbsp;&nbsp;Piezas</a>
 		          <ul class="dropdown-menu">
 		            <li><a href="{{url('/piezas')}}">Ver todas las piezas</a></li>
 		            <li><a href="{{url('/piezas/create')}}">Cargar una pieza</a></li>
@@ -88,11 +88,12 @@
 		            <li><a href="{{url('/revisiones/create')}}">Cargar una revisión</a></li>
 		          </ul>
 		        </li>
+                        <li>
+                            <a href="{{url('/autoridades')}}"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;Autoridades y contacto</a></li>
 		      </ul>
 		      <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{url('/autoridades')}}"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>&nbsp;Autoridades y contacto</a></li>
                     <!-- SI NO ESTA LOGUEADO!!!-->
-                    <li><a href="{{url('')}}">Ingresar</a></li>
+                    <li><a href="{{url('')}}" style="margin-right: 1cm;"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Ingresar</a></li>
 		        	<!--li class="dropdown"> SI ESTA LOGUEADO!!!
 		          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mi sesión&nbsp;<span class="caret"></span></a>
 		          	<ul class="dropdown-menu">
